@@ -2,15 +2,45 @@
 <html>
 
 <head>
-    <title>Word List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quizlet Lister</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fascinate&family=Goldman:wght@400;700&family=Michroma&family=Orbitron:wght@400;600;800;900&family=Zen+Dots&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script defer src="popup.js"></script>
+
 </head>
 
 <body>
-    <div id="wordList"></div>
-    <button id="copyButton">Copy All</button>
-    <button id="clearButton">Clear List</button>
-    <script src="popup.js"></script>
+    <section>
+        <div class="dashboard">
+            <div class="header-bar">
+                <p class="bar-label"><span id="tooltip" class="info">i</span>Quizlet Lister</p>
+                <button id="button-close" class="close-button">X</button>
+            </div>
+            <div id="description" class="section-container">
+                <p class="text">This Chrome extension allows users to easily add selected words to a list and then copy
+                    them for use in applications like Quizlet. Just Copy All and paste to <a target="_blank"
+                        href="https://quizlet.com/">Quizlet.com</a></p>
+            </div>
+            <div class="section-container">
+                <h1 class="title">Your Quizlet List here:</h1>
+                <ul id="wordList"></ul>
+            </div>
+
+            <div id="copy-notification" class="section-container">
+                <p class="text">Copied successfully</p>
+            </div>
+            <div class="tabs">
+                <button class="tab" id="copyButton">Copy All</button>
+                <button class="tab" id="clearButton">Clear List</button>
+            </div>
+        </div>
+    </section>
+
 </body>
 
 </html>
