@@ -1,0 +1,20 @@
+body {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.word {
+    font-size: 16px;
+}
+
+#wordList {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
