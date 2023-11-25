@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   copyButton.addEventListener('click', () => {
     const words = [];
     document.querySelectorAll('.word').forEach((wordElement) => {
-      words.push(`${wordElement.textContent},Add definition here`);
+      words.push(`${wordElement.textContent},`);
     });
     const wordsString = words.join('; ');
     navigator.clipboard.writeText(wordsString).then(() => {
