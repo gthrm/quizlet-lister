@@ -145,5 +145,5 @@ dist
 
 
 *.psd
-
 .DS_Store
+*.zip
