@@ -18,3 +18,4 @@ jobs:
         with:
           branch: gh-pages # Deploying to a branch named gh-pages
           folder: public # Folder to deploy
+          token: ${{ secrets.DEPLOY_TOKEN }}
