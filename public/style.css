@@ -148,6 +148,12 @@ li p {
     font-weight: 900;
 }
 
+p span {
+    font-family: 'Orbitron';
+    font-weight: 900;
+    color: var(--c-pinkish);
+}
+
 /* Style for mobile devices */
 @media screen and (max-width: 600px) {
 
