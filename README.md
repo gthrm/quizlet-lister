@@ -1,5 +1,6 @@
 # Quizlet Lister Chrome Extension
 
+Ever find yourself reading an article and come across words you don't know? 🤔 Want to note them down for studying but find it too tedious to copy each one? Use this app to effortlessly compile a list of words! 📝 Then, with just one click, copy all the words at once and transfer them to Quizlet for study time! 📚✨
 This Chrome extension allows users to easily add selected words to a list and then copy them for use in applications like Quizlet.
 
 ## Features
