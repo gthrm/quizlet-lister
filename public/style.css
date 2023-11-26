@@ -117,7 +117,7 @@ footer {
     /* Center align the video container */
 
     position: relative;
-    padding-top: calc(9/16 * 50%);
+    padding-top: calc(9/16 * 100%);
     /* Aspect ratio 16:9 (9/16 = 0.5625, 0.5625 * 50vw = 28.125%) */
 }
 
