@@ -13,13 +13,17 @@
     <section>
         <div class="dashboard">
             <div class="header-bar">
-                <p class="bar-label"><span id="tooltip" class="info">i</span>Quizlet Lister</p>
+                <a href="https://cdroma.me/quizlet-lister/" target="_blank">
+                    <p class="bar-label"><span id="tooltip" class="info">i</span>Quizlet Lister</p>
+                </a>
                 <button id="button-close" class="close-button">X</button>
             </div>
             <div id="description" class="section-container">
                 <p class="text">This Chrome extension allows users to easily add selected words to a list and then copy
-                    them for use in applications like Quizlet. Just Copy All and paste to <a target="_blank"
-                        href="https://quizlet.com/">Quizlet.com</a></p>
+                    them for use in applications like Quizlet.<br />Just Copy All and paste to <a class="link"
+                        target="_blank" href="https://quizlet.com/create-set">Quizlet.com</a></p>
+                <p>How to use? <a class="link" href="https://cdroma.me/quizlet-lister/" target="_blank">Look here!</a>
+                </p>
             </div>
             <div class="section-container">
                 <h1 class="title">Your Quizlet List here:</h1>
@@ -29,9 +33,22 @@
             <div id="copy-notification" class="section-container">
                 <p class="text">Copied successfully</p>
             </div>
+            <div id="error-notification" class="section-container">
+                <p class="text">Copied successfully</p>
+            </div>
             <div class="tabs">
-                <button class="tab" id="copyButton">Copy All</button>
+                <button class="tab" id="copyButton">
+                    <div id="loading"></div>
+                    Copy All
+                </button>
                 <button class="tab" id="clearButton">Clear List</button>
+                <button class="tab" id="showHideTokenButton">Set AI Translation</button>
+                <div id="gpt-container">
+                    <label for="gptToken">Enter GPT Token for AI translation:</label>
+                    <input class="title token-input" type="password" id="gptToken"
+                        placeholder="Set your GPT token here">
+                    <button class="tab" id="saveToken">Save</button>
+                </div>
             </div>
         </div>
     </section>

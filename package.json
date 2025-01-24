@@ -1,6 +1,6 @@
 {
   "name": "quizlet-lister",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This Chrome extension allows users to easily add selected words to a list and then copy them for use in applications like Quizlet.",
   "main": "popup.js",
   "scripts": {

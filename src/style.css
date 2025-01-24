@@ -49,6 +49,11 @@ section {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #description {
     display: none;
 }
@@ -57,6 +62,32 @@ section {
     opacity: 0;
     text-align: center;
     color: var(--c-lilac);
+}
+
+#error-notification {
+    display: none;
+    text-align: center;
+    color: var(--c-pink);
+}
+
+#gpt-container {
+    display: none;
+}
+
+#copyButton {
+    position: relative;
+}
+
+#loading {
+    display: none;
+    height: 0;
+    width: 0;
+    padding: 6px;
+    border: 6px solid var(--c-pink);
+    border-right-color: var(--c-lilac);
+    border-radius: 22px;
+    animation: rotate 1s infinite linear;
+    position: absolute;
 }
 
 .dashboard {
@@ -153,6 +184,27 @@ section {
 
 .tabs button.active {
     background-color: var(--c-pinkish);
+}
+
+.token-input {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 4px;
+    font-size: 14px;
+}
+
+.link {
+    color: var(--c-pinkish);
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 

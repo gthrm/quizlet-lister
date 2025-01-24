@@ -1,3 +1,4 @@
+// service_worker.js
 /* eslint-disable no-undef */
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
