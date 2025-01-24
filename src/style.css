@@ -115,12 +115,16 @@ a {
     text-align: center;
     width: 30px;
     height: 25px;
+    font-size: 14px;
+    line-height: 20px;
     background-color: var(--c-light-pink);
     border: 2px solid black;
     cursor: pointer;
 }
 
 .bar-label {
+    color: var(--c-white);
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,8 +139,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    line-height: 14px;
     background-color: var(--c-light-pink);
     color: var(--c-purple);
     border-radius: 50%;
@@ -199,6 +205,18 @@ a {
     color: var(--c-pinkish);
     font-weight: 900;
     text-decoration: underline;
+}
+
+.tab-link {
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    text-align: center;
+}
+
+.support {
+    background-color: var(--c-lilac);
+    color: var(--c-white);
 }
 
 @keyframes rotate {
