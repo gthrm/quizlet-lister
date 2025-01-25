@@ -1,6 +1,76 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 document.addEventListener("DOMContentLoaded", () => {
+  const languages = [
+    "Russian",
+    "English",
+    "Afrikaans",
+    "Albanian",
+    "Amharic",
+    "Arabic",
+    "Armenian",
+    "Bengali",
+    "Bosnian",
+    "Bulgarian",
+    "Cantonese",
+    "Croatian",
+    "Czech",
+    "Danish",
+    "Dutch",
+    "English",
+    "Estonian",
+    "Finnish",
+    "French",
+    "Georgian",
+    "German",
+    "Greek",
+    "Gujarati",
+    "Hausa",
+    "Hebrew",
+    "Hindi",
+    "Hungarian",
+    "Icelandic",
+    "Irish",
+    "Italian",
+    "Japanese",
+    "Kazakh",
+    "Korean",
+    "Kyrgyz",
+    "Latvian",
+    "Lithuanian",
+    "Macedonian",
+    "Malay",
+    "Mandarin Chinese",
+    "Marathi",
+    "Mongolian",
+    "Norwegian",
+    "Pashto",
+    "Persian (Farsi)",
+    "Polish",
+    "Portuguese",
+    "Punjabi",
+    "Romanian",
+    ,
+    "Serbian",
+    "Slovak",
+    "Somali",
+    "Spanish",
+    "Swahili",
+    "Swedish",
+    "Tamil",
+    "Telugu",
+    "Thai",
+    "Turkish",
+    "Turkmen",
+    "Ukrainian",
+    "Urdu",
+    "Uzbek",
+    "Vietnamese",
+    "Welsh",
+    "Xhosa",
+    "Zulu",
+  ];
+
   const wordListElement = document.getElementById("wordList");
 
   const copyButton = document.getElementById("copyButton");
@@ -9,10 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const showHideTokenButton = document.getElementById("showHideTokenButton");
   const saveTokenButton = document.getElementById("saveToken");
 
+  const select = document.getElementById("language-selector");
+
   const loadingSpinner = document.getElementById("loading");
 
   const copyNotification = document.getElementById("copy-notification");
   const errorNotification = document.getElementById("error-notification");
+
+  createLanguageSelector();
 
   // Close popup on clicking the close button
   closeButton.addEventListener("click", () => {
@@ -37,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         copyButton.disabled = false;
       }
+    }
+
+    if (namespace === "local" && changes.language) {
+      updateLanguageSelector();
     }
   });
 
@@ -147,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let formattedResult = phrase;
     try {
       const { gptToken } = await chrome.storage.local.get("gptToken");
+      const { language } = await chrome.storage.local.get("language");
 
       if (gptToken) {
         // Use GPT API to translate the entire string at once
@@ -164,8 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
               messages: [
                 {
                   role: "system",
-                  content:
-                    "You are translating a string to Russian containing word-definition pairs used in web extensions. Each pair is formatted as 'word,Add definition here' and pairs are separated by semicolons. Replace 'Add definition here' with a proper translation while keeping the format and structure unchanged. For example: 'word,Translated definition; another word,Translated definition'. Keep it concise and context-appropriate.",
+                  content: `You are translating a string to ${language} containing word-definition pairs used in web extensions. Each pair is formatted as 'word,Add definition here' and pairs are separated by semicolons. Replace 'Add definition here' with a proper translation while keeping the format and structure unchanged. For example: 'word,Translated definition; another word,Translated definition'. Keep it concise and context-appropriate.`,
                 },
                 {
                   role: "user",
@@ -203,12 +281,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const tokenContainer = document.getElementById("gpt-container");
 
     if (tokenContainer.style.display !== "block") {
-      showHideTokenButton.innerText = "Hide AI translation";
+      showHideTokenButton.innerText = "Hide AI Settings";
       tokenContainer.style.display = "block";
     } else {
-      showHideTokenButton.innerText = "Set AI translation";
+      showHideTokenButton.innerText = "AI Translation Settings";
       tokenContainer.style.display = "none";
     }
+  }
+
+  async function updateLanguageSelector() {
+    const { language: selectedLanguage } = await chrome.storage.local.get(
+      "language"
+    );
+
+    select.value = selectedLanguage || languages[0];
+  }
+
+  async function createLanguageSelector() {
+    languages.forEach((language) => {
+      const option = document.createElement("option");
+      option.value = language;
+      option.textContent = language;
+      select.appendChild(option);
+    });
+
+    await updateLanguageSelector();
+
+    select.addEventListener("change", async (event) => {
+      const selectedValue = event.target.value;
+      await chrome.storage.local.set({ language: selectedValue });
+    });
   }
 
   const tooltipElement = document.getElementById("tooltip");

@@ -42,8 +42,10 @@
                     Copy All
                 </button>
                 <button class="tab" id="clearButton">Clear List</button>
-                <button class="tab" id="showHideTokenButton">Set AI Translation</button>
+                <button class="tab" id="showHideTokenButton">AI Translation Settings</button>
                 <div id="gpt-container">
+                    <label for="language-selector">Enter target language for translation</label>
+                    <select class="title token-input" name="language-selector" id="language-selector"></select>
                     <label for="gptToken">Enter GPT Token for AI translation:</label>
                     <input class="title token-input" type="password" id="gptToken"
                         placeholder="Set your GPT token here">
